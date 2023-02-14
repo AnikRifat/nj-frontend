@@ -1,10 +1,12 @@
 import { useQueryClient } from "@tanstack/react-query";
+import { CloudUploadOutlined } from "@ant-design/icons";
 import axios from "axios";
 import JoditEditor from "jodit-react";
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useBlog } from "../../Hooks/useBlogs";
+import { Button, Upload } from "antd";
 
 const CreateBlog = (e) => {
   const navigate = useNavigate();
@@ -67,16 +69,23 @@ const CreateBlog = (e) => {
             placeholder="blog Name"
           />
         </div>
-        <div className="mb-5">
-          <input
-            name="image"
-            className="border w-full h-14 pl-5"
-            placeholder="Your Images"
-            accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
-            required
-            type="file"
-          />
+        <div className="my-5">
+          <Upload
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            listType="picture"
+            maxCount={1}
+            rules={[{ required: true }]}
+            onChange={(e) => {
+              setImage(e.file.originFileObj);
+            }}
+          >
+            <Button
+              className="w-44 md:w-80 h-20 border-dashed text-2xl"
+              icon={<CloudUploadOutlined />}
+            >
+              Upload
+            </Button>
+          </Upload>
         </div>
         <div>
           <JoditEditor

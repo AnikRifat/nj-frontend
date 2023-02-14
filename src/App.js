@@ -89,7 +89,7 @@ const App = () => {
       </Routes>
 
       <Footer />
-      <ToastContainer />
+      <ToastContainer autoClose={1500} position={"top-center"} />
     </>
   );
 };
