@@ -1,4 +1,5 @@
 import React from "react";
+import BlogSection from "../components/BlogSection";
 import Hero from "../components/Hero";
 import OurServiceSection from "../components/OurServiceSection";
 import ProjectsGallary from "../components/ProjectsGallary";
@@ -9,11 +10,12 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <ProjectsGallary />
       <PackagePage/>
+      <ProjectsGallary />
+      
       <WhoWeAreSection />
       <OurServiceSection />
-      
+      <BlogSection/>
       
     </>
   );
